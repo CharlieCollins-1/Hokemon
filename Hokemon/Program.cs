@@ -2,32 +2,45 @@
 
 namespace Hokemon
 {
-    class About
+    class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the world of Hokemon!\n\n");
 
-            Console.WriteLine("Hello welcome to Hokeworld  home of Hokemon!"); //Instantiation of new Hokemon
+            Hokemon HokeObject01 = new Hokemon(); // INSTANTIATING our first object
 
-            Hokemon hoke01 = new Hokemon();
-            Hokemon hoke02 = new Hokemon();
+            HokeObject01.get_details();
 
-            hoke01.get_details();
+            System.Threading.Thread.Sleep(1000); // Sleep for 1 second
 
-            hoke01.about(); //Invoking the about method for hoke01
-            
-            
-            hoke02.about();
+            // Create a second Hokemon
+            Hokemon Hoke02 = new Hokemon();
+            Hoke02.get_details();
 
-            Halor halorHoke01 = new Halor(); //Inherited
+            HokeObject01.about();
+            Hoke02.about();
+
+            /*
+            Halor halorHoke01 = new Halor();
             halorHoke01.get_details();
+            // Example of POLYMORPHISM with the about method in following objects
+            Hoke02.about();
             halorHoke01.about();
+            */
+
+            Battle_Arena firstArena = new Battle_Arena(); // Instiating the object firstArena
+                                                          // from the Battle_Arena CLASS
 
 
+            firstArena.RequestAChallenger(HokeObject01); // ARGUMENT HokeObject01
+                                                         // passed into the 
+                                                         // firstArena object
+                                                         // method Req....
+            firstArena.AcceptingTheBattle(HokeObject01, Hoke02);
+
+            firstArena.Battle(HokeObject01, Hoke02); // Starts the Battle
 
         }
     }
 }
-
-
-
